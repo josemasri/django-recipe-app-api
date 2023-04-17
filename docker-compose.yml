@@ -8,6 +8,7 @@ services:
       args:
         - DEV=true
     container_name: app
+    image: josemasri/django-recipie-app
     ports:
       - "8000:8000"
     volumes:
