@@ -3,9 +3,22 @@ LABEL maintainer="josemasri"
 
 ENV PYTHONUNBUFFERED 1
 
+RUN apk add --no-cache \
+    build-base \
+    postgresql-dev \
+    postgresql-client \
+    musl-dev \
+    bash \
+    && rm -rf /var/cache/apk/*
+
 COPY ./requirements.txt /tmp/requirements.txt
 COPY ./requirements.dev.txt /tmp/requirements.dev.txt
 COPY ./app /app
+
+# Copy the wait-for-it.sh script and make it executable
+COPY wait-for-it.sh /usr/local/bin/wait-for-it.sh
+RUN chmod +x /usr/local/bin/wait-for-it.sh
+
 WORKDIR /app
 EXPOSE 8000
 
