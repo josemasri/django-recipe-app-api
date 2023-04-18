@@ -15,10 +15,6 @@ COPY ./requirements.txt /tmp/requirements.txt
 COPY ./requirements.dev.txt /tmp/requirements.dev.txt
 COPY ./app /app
 
-# Copy the wait-for-it.sh script and make it executable
-COPY wait-for-it.sh /usr/local/bin/wait-for-it.sh
-RUN chmod +x /usr/local/bin/wait-for-it.sh
-
 WORKDIR /app
 EXPOSE 8000
 
