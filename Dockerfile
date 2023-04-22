@@ -1,4 +1,4 @@
-FROM python:3.9-alpine3.13
+FROM python:3.11-alpine3.17
 LABEL maintainer="josemasri"
 
 ENV PYTHONUNBUFFERED 1
@@ -33,5 +33,8 @@ RUN python -m venv /py && \
         "django-user"
 
 ENV PATH="/py/bin:$PATH"
+
+# Copy wait-for-it.sh to a executable path
+COPY ./wait-for-it.sh /usr/local/bin/wait-for-it.sh
 
 USER django-user

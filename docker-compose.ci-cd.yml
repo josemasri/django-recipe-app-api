@@ -35,4 +35,4 @@ services:
     volumes:
       - ./db:/var/lib/postgresql/data
     env_file:
-      - .env
+      - .env.ci-cd
